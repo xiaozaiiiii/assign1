@@ -29,7 +29,7 @@ void setup() {
   
   size(640, 480);
   
-	bgImg = loadImage("img/bg.jpg");
+  bgImg = loadImage("img/bg.jpg");
   soilImg = loadImage("img/soil.png");
   firstLifeImg = loadImage("img/life.png");
   secondLifeImg = loadImage("img/life.png");
@@ -66,7 +66,7 @@ void draw() {
   image(robotImg,robotX,robotY);
   
   //soldier
-	image(soldierImg,soldierX,soldierY);
+  image(soldierImg,soldierX,soldierY);
   
   soldierX += 3;
   
