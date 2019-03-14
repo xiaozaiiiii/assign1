@@ -11,11 +11,11 @@ float soldierX;
 float soldierY;
 float robotX;
 float robotY;
-float laserLength = 10;
 float laserMaxLength = 40;
 float laserX;
 float laserY;
-float laserMinX;
+float laserLength;
+
 
 void setup() {
   
@@ -25,7 +25,7 @@ void setup() {
   robotY = floor(random(2,5))*80;
   laserX = robotX+25;
   laserY = robotY+37;
-  laserMinX = laserX-160;
+  laserLength = 0;
   
   size(640, 480);
   
@@ -62,29 +62,25 @@ void setup() {
 void draw() {
   
   image(soilImg,0,160);
-  
   image(robotImg,robotX,robotY);
   
   //soldier
   image(soldierImg,soldierX,soldierY);
-  
   soldierX += 3;
-  
   if(soldierX >= 680){
     soldierX = -40;
   }
   
   //laser
-  noStroke();
-  fill(255,0,0);//red
-  rect(laserX,laserY,-laserLength,10,5);
-  
+  strokeWeight(10);
+  stroke(255,0,0);//red
+  line(laserX,laserY,laserX-laserLength,laserY);
   laserLength = min(laserLength+2,laserMaxLength);
-  laserX = max(laserX-2,laserMinX);
-  
-  if(laserX <= robotX+25-160){
+  laserX -= 2;
+  if(laserX-laserLength <= robotX+25-160){
     laserX = robotX+25;
-    laserLength = 10;
+    laserY = robotY+37;
+    laserLength = 0;
   }
   
 }
