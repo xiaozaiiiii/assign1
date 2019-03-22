@@ -67,14 +67,17 @@ void draw() {
   //soldier
   image(soldierImg,soldierX,soldierY);
   soldierX += 3;
-  if(soldierX >= 680){
-    soldierX = -40;
+  if(soldierX >= 640){
+    soldierX = -80;
   }
   
   //laser
   strokeWeight(10);
   stroke(255,0,0);//red
   line(laserX,laserY,laserX-laserLength,laserY);
+  if(laserLength<40){
+    laserX = robotX+25;
+  }
   laserLength = min(laserLength+2,laserMaxLength);
   laserX -= 2;
   if(laserX-laserLength <= robotX+25-160){
