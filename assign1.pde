@@ -20,9 +20,9 @@ float laserLength;
 void setup() {
   
   soldierX = -40;
-  soldierY = floor(random(2,5))*80;
+  soldierY = floor(random(2,6))*80;
   robotX = floor(random(3,8))*80;
-  robotY = floor(random(2,5))*80;
+  robotY = floor(random(2,6))*80;
   laserX = robotX+25;
   laserY = robotY+37;
   laserLength = 0;
